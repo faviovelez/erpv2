@@ -49,3 +49,9 @@ gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter', '~> 4.2.0'
 
 gem 'devise'
+
+gem 'rmagick'
+
+gem 'carrierwave', '~> 1.0'
+
+gem 'dotenv-rails'

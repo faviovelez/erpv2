@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114225800) do
+ActiveRecord::Schema.define(version: 20170115023126) do
+
+  create_table "galleries", force: :cascade do |t|
+    t.string   "image",      limit: 4000
+    t.integer  "product_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "galleries", ["product_id"], name: "index_galleries_on_product_id"
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "code",       limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 4000, default: "", null: false
@@ -31,4 +46,5 @@ ActiveRecord::Schema.define(version: 20170114225800) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+  add_foreign_key "galleries", "products"
 end

@@ -1,0 +1,13 @@
+
+<%= form_for @product do |f| %>
+
+  <%= f.label :code %>
+  <%= f.text_field :code %> <br />
+
+  <%= f.fields for :gallery do |f_gallery| %>
+    <%= f_gallery.label :file %>
+    <%= f_gallery.file_field :file %> <br />
+    <%= f_gallery.submit %>
+  <% end %>
+
+<% end %>
